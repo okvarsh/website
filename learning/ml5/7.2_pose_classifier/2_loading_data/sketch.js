@@ -16,17 +16,17 @@ function setup() {
   createCanvas(640, 480);
   let options = {
     inputs: 34,
-    outputs: 4,
+    outputs: 6,
     task: 'classification',
     debug: true
   }
   brain = ml5.neuralNetwork(options);
-  brain.loadData('ymca.json', dataReady);
+  brain.loadData('allAsanas.json', dataReady);
 }
 
 function dataReady() {
   brain.normalizeData();
-  brain.train({epochs: 50}, finished); 
+  brain.train({epochs: 100}, finished);  //default was 50
 }
 
 function finished() {

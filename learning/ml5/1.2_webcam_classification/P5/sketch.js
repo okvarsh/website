@@ -18,10 +18,10 @@ function gotResults(error, results) {
   if (error) {
     console.error(error);
   } else {
-    //console.log(results);
+    console.log(results);
     //label = results[0].className;
     label = results[0].label;
-    mobilenet.predict(gotResults);
+    //mobilenet.predict(gotResults);
   }
 }
 

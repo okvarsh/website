@@ -14,9 +14,9 @@ let video;
 let poseNet;
 let pose;
 let skeleton;
-
+let conf;
 let brain;
-let poseLabel = "Y";
+let poseLabel = "";
 
 function setup() {
   createCanvas(640, 480);
@@ -33,9 +33,9 @@ function setup() {
   }
   brain = ml5.neuralNetwork(options);
   const modelInfo = {
-    model: 'model2/model.json',
-    metadata: 'model2/model_meta.json',
-    weights: 'model2/model.weights.bin',
+    model: 'allAsanas/model.json',
+    metadata: 'allAsanas/model_meta.json',
+    weights: 'allAsanas/model.weights.bin',
   };
   brain.load(modelInfo, brainLoaded);
 }
@@ -63,6 +63,7 @@ function classifyPose() {
 function gotResult(error, results) {
   
   if (results[0].confidence > 0.75) {
+    conf = results[0].confidence;
     poseLabel = results[0].label.toUpperCase();
   }
   //console.log(results[0].confidence);
@@ -109,7 +110,32 @@ function draw() {
 
   fill(255, 0, 255);
   noStroke();
-  textSize(512);
+  textSize(75);
   textAlign(CENTER, CENTER);
-  text(poseLabel, width / 2, height / 2);
+  // if(poseLabel == ''){
+  //   text("perform asana", width / 2, height / 2);
+  // }
+  // else if(poseLabel == 'Y'){
+  //   text("y asana", width / 2, height / 2);
+  // }
+  // else if(poseLabel == ''){
+  //   text("m asana", width / 2, height / 2);
+  // }
+  // else if(poseLabel == 'C'){
+  //   text("c asana", width / 2, height / 2);
+  // }
+  // else if(poseLabel == 'A'){
+  //   text("a asana", width / 2, height / 2);
+  // }
+  if(poseLabel=="A")    document.getElementById("description").innerHTML = "Siddhasana";
+  if(poseLabel=="B")    document.getElementById("description").innerHTML = "Trikonasana";
+  if(poseLabel=="C")    document.getElementById("description").innerHTML = "Vajrasana";
+  if(poseLabel=="D")    document.getElementById("description").innerHTML = "Veerabhadrasana";
+  if(poseLabel=="E")    document.getElementById("description").innerHTML = "Vrukshasana";
+  if(poseLabel=="F")    document.getElementById("description").innerHTML = "Standing";
+
+  document.getElementById("accuracy").innerHTML = conf*100+"%";
+  // if(conf>0.90){
+  //   document.getElementById("accuracy").innerHTML = conf;
+  // }
 }

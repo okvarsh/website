@@ -98,9 +98,9 @@ function gotResults(error, results) {
   }
   console.log(results);
   stroke(0);
-  fill(0, 0, 255, 100);
+  fill(19, 125, 73, 13);
   ellipse(mouseX, mouseY, 24);
-  fill(0);
+  fill();
   noStroke();
   textAlign(CENTER, CENTER);
   let label = results[0].label;
