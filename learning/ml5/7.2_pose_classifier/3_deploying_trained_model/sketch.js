@@ -33,9 +33,9 @@ function setup() {
   }
   brain = ml5.neuralNetwork(options);
   const modelInfo = {
-    model: 'allAsanas/model.json',
-    metadata: 'allAsanas/model_meta.json',
-    weights: 'allAsanas/model.weights.bin',
+    model: 'all2Asanas/model.json',
+    metadata: 'all2Asanas/model_meta.json',
+    weights: 'all2Asanas/model.weights.bin',
   };
   brain.load(modelInfo, brainLoaded);
 }
@@ -65,6 +65,7 @@ function gotResult(error, results) {
   if (results[0].confidence > 0.75) {
     conf = results[0].confidence;
     poseLabel = results[0].label.toUpperCase();
+    console.log(poseLabel)
   }
   //console.log(results[0].confidence);
   classifyPose();
@@ -133,6 +134,8 @@ function draw() {
   if(poseLabel=="D")    document.getElementById("description").innerHTML = "Veerabhadrasana";
   if(poseLabel=="E")    document.getElementById("description").innerHTML = "Vrukshasana";
   if(poseLabel=="F")    document.getElementById("description").innerHTML = "Standing";
+  // else
+  //   document.getElementById("description").innerHTML = poseLabel;
 
   document.getElementById("accuracy").innerHTML = conf*100+"%";
   // if(conf>0.90){

@@ -16,12 +16,12 @@ function setup() {
   createCanvas(640, 480);
   let options = {
     inputs: 34,
-    outputs: 6,
+    outputs: 4,
     task: 'classification',
     debug: true
   }
   brain = ml5.neuralNetwork(options);
-  brain.loadData('allAsanas.json', dataReady);
+  brain.loadData('allAsanas2.json', dataReady);
 }
 
 function dataReady() {
