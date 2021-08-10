@@ -1,32 +1,38 @@
 html, body {
-  margin: 0;
+margin: 0;
   padding: 0;
-  background-color: #8BC6EC;
-background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
-
+  background-color: #ddc0c0;
+background-image: linear-gradient(135deg, #d6c7c7 0%, #bae61d 100%);
  /* background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */
   background-repeat: no-repeat;
   height: 98%;
 }
+
 canvas {
   margin-top: 7vh;
   margin-left: 15vw;
-  border: 4px solid #8BC6EC;
+  border: 4px solid #cea68f;
   box-shadow: 0 6px 16px 0 rgb(0 0 0 / 70%);
 }
 #defaultCanvas0 {
   width: 840px;
 }
+#referenceImg {
+  position: fixed;
+  top: 20vh;
+  left: 65vw;
+}
+
 #description {
   position: fixed;
-  top: 40vh;
+  top: 64vh;
   left: 65vw;
   font-size: 75px;
   color: white;
 }
 #accuracy {
   position: fixed;
-  top: 60vh;
+  top: 80vh;
   left: 65vw;
   font-size: 40px;
   color: white;

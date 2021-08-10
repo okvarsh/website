@@ -1,15 +1,3 @@
-// ml5.js: Pose Classification
-// The Coding Train / Daniel Shiffman
-// https://thecodingtrain.com/learning/ml5/7.2-pose-classification.html
-// https://youtu.be/FYgYyq-xqAw
-
-// All code: https://editor.p5js.org/codingtrain/sketches/JoZl-QRPK
-
-// Separated into three sketches
-// 1: Data Collection: https://editor.p5js.org/codingtrain/sketches/kTM0Gm-1q
-// 2: Model Training: https://editor.p5js.org/codingtrain/sketches/-Ywq20rM9
-// 3: Model Deployment: https://editor.p5js.org/codingtrain/sketches/c5sDNr8eM
-
 let video;
 let poseNet;
 let pose;
@@ -33,9 +21,9 @@ function setup() {
   }
   brain = ml5.neuralNetwork(options);
   const modelInfo = {
-    model: 'all2Asanas/model.json',
-    metadata: 'all2Asanas/model_meta.json',
-    weights: 'all2Asanas/model.weights.bin',
+    model: 'AtoH/model.json',
+    metadata: 'AtoH/model_meta.json',
+    weights: 'AtoH/model.weights.bin',
   };
   brain.load(modelInfo, brainLoaded);
 }
@@ -128,12 +116,42 @@ function draw() {
   // else if(poseLabel == 'A'){
   //   text("a asana", width / 2, height / 2);
   // }
-  if(poseLabel=="A")    document.getElementById("description").innerHTML = "Siddhasana";
-  if(poseLabel=="B")    document.getElementById("description").innerHTML = "Trikonasana";
-  if(poseLabel=="C")    document.getElementById("description").innerHTML = "Vajrasana";
-  if(poseLabel=="D")    document.getElementById("description").innerHTML = "Veerabhadrasana";
-  if(poseLabel=="E")    document.getElementById("description").innerHTML = "Vrukshasana";
-  if(poseLabel=="F")    document.getElementById("description").innerHTML = "Standing";
+  if(poseLabel=="A")    
+  {
+    document.getElementById("description").innerHTML = "Siddhasana";
+    document.getElementById("referenceImg").innerHTML = "<img src='100/Sid.png' width=\"350px\" height=\"250px\">";
+  }
+  if(poseLabel=="B")    
+  {
+    document.getElementById("description").innerHTML = "Trikonasana";
+    document.getElementById("referenceImg").innerHTML = "<img src='100/Trikonasana.png' width=\"350px\" height=\"250px\">";
+  }
+  
+  if(poseLabel=="C")  {
+    document.getElementById("description").innerHTML = "Vajrasana";
+    document.getElementById("referenceImg").innerHTML = "<img src='100/vjr.PNG' width=\"350px\" height=\"250px\">";
+  }
+  if(poseLabel=="D")    {
+    document.getElementById("description").innerHTML = "Veerabhadrasana";
+    document.getElementById("referenceImg").innerHTML = "<img src='100/vbd.png' width=\"350px\" height=\"250px\">";
+  }
+  if(poseLabel=="E")    {
+    document.getElementById("description").innerHTML = "Vrukshasana"; 
+    document.getElementById("referenceImg").innerHTML = "<img src='100/vrk.png' width=\"350px\" height=\"250px\">";
+  }
+  if(poseLabel=="F")    {
+    document.getElementById("description").innerHTML = "Standing";
+    document.getElementById("referenceImg").innerHTML = "<img src='100/asanas.png' width=\"400px\" height=\"300px\">";
+  }
+  if(poseLabel=="G")    {
+    document.getElementById("description").innerHTML = "Anjaneyasana";
+    document.getElementById("referenceImg").innerHTML = "<img src='100/Anj.PNG' width=\"350px\" height=\"250px\">";
+  }
+  if(poseLabel=="H")    {
+    document.getElementById("description").innerHTML = "Dandasana";
+    document.getElementById("referenceImg").innerHTML = "<img src='100/dandasana.png' width=\"350px\" height=\"250px\">";
+  }
+
   // else
   //   document.getElementById("description").innerHTML = poseLabel;
 
